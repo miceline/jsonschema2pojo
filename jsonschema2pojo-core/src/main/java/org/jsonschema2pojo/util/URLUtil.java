@@ -46,7 +46,7 @@ public class URLUtil {
 
     public static File getFileFromURL(URL url) {
         try {
-            return new File(url.toURI());
+            return Paths.get(url.toURI()).toFile();
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException(String.format("URL contains an invalid URI syntax: %s", url), e);
         }
